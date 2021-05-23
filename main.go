@@ -1,6 +1,7 @@
 package main
 
 import (
+  "fmt"
   "log"
   "github.com/hashicorp/hcl/hclsimple"
 )
@@ -18,9 +19,13 @@ type Config struct {
 
 func main() {
   var config Config
-  err := hclsimple.DecodeFile("variables.tfvars", nil, &config)
+  err := hclsimple.DecodeFile("variables.hcl", nil, &config)
   if err != nil {
     log.Fatalf("Failed to load configuration: %s", err)
   }
-  log.Printf("Configuration is %#v", config)
+  fmt.Printf("| Name | Type | Description | Default |\n")
+  fmt.Printf("|------|------|-------------|---------|\n")
+  for _, s := range config.Variables {
+    fmt.Printf("| %v | %v | %v | %v |\n", s.Name, s.Type, s.Description, s.Default)
+  }
 }
