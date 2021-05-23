@@ -18,7 +18,7 @@ type Config struct {
 
 func main() {
   var config Config
-  err := hclsimple.DecodeFile("config.hcl", nil, &config)
+  err := hclsimple.DecodeFile("variables.tfvars", nil, &config)
   if err != nil {
     log.Fatalf("Failed to load configuration: %s", err)
   }
