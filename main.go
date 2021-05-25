@@ -3,7 +3,7 @@ package main
 import (
   "fmt"
   "log"
-  "github.com/hashicorp/hcl/hclsimple"
+  "github.com/hashicorp/hcl/v2/hclsimple"
 )
 
 type Variable struct {
