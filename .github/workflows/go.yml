@@ -11,3 +11,5 @@ jobs:
         go-version: 1.15
     - name: Build
       run: go build .
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v2.4.0
