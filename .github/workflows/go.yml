@@ -26,4 +26,4 @@ jobs:
       with:
         push: true
         tags: |
-          docker.pkg.github.com/${{ github.repository }}/main:${{ github.sha }}
+          docker.pkg.github.com/${{ github.repository }}:${GITHUB_REF##*/}
