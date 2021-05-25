@@ -17,7 +17,7 @@ jobs:
     - name: Docker Login
       uses: docker/login-action@v1.9.0
       with:
-        registry: docker.pkg.github.com
+        registry: ghcr.com
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         
@@ -26,4 +26,4 @@ jobs:
       with:
         push: true
         tags: |
-          docker.pkg.github.com/${{ github.repository }}/hcl-to-md:main
+          ghcr.com/${{ github.repository }}:main
